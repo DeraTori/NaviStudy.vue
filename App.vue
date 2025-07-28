@@ -1,4 +1,11 @@
 <template>
+  <div>
+  <div v-if="isVisible">
+  <p>複数要素</p>
+  <p>出す場合</p>
+  </div>
+  <p v-if="foo ==='foo'">{{foo}}</p>
+  
   <p>今日の日付:{{currentTime}}</p>
   <h1 class="NAVITIME">{{company.name}}</h1>
   <h2 class="years">{{company.sinceyear}}</h2>
@@ -23,7 +30,9 @@
   <li class="Techs2">{{SkillSet2[0]}}</li>
   <li class="Techs2">{{SkillSet2[1]}}</li>
   <li class="Techs2">{{SkillSet2[2]}}</li>
-
+  <li v-for="(itemsAnimal, index) in itemsAnimal"
+:key="index">
+{{itemsAnimal.message}}</li>
 
 
   
@@ -45,6 +54,8 @@
 </template>
 
 <script setup>
+  const isVisible=true;
+  const foo ="foo";
   const currentTime =new Date();
   const weather = '晴れ';
   let text1 ="くもり";
@@ -64,7 +75,10 @@
 
   const SkillSet2=["react","vue","kotlin"];
   console.log(SkillSet2[0]);
-
+  const itemsAnimal=[
+  {message: "#どうしよう"},
+  {message:"わけわかめ"}
+  ];
 </script>
 
 <style>
