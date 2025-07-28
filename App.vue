@@ -1,6 +1,7 @@
 <template>
+  <p>今日の日付:{{currentTime}}</p>
   <h1 class="NAVITIME">{{company.name}}</h1>
-  <h1 class="years">{{company.sinceyear}}</h1>
+  <h2 class="years">{{company.sinceyear}}</h2>
   
   <img class="src" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXzYmT8sRYQERcaifzkPbVFDraSU3Gh2h1aA&s" alt="熱中症の少年イラスト" />
    <h3 class="charactar">会社の特徴</h3>
@@ -15,10 +16,18 @@
 社会の様々な移動課題の解決に貢献しています。安定した経営基盤も特徴で、過去10年間赤字決算がない実績を持っています。</p>
 
   <h3 class ="useTech">使用技術</h3>
-  <ul class="Techs">
-    <li>JavaScript</li>
-    <li>Python</li>
-    <li>react</li>
+  <ul>
+  <li class="Techs">{{SkillSet.No1}}</li>
+  
+  <li class="Techs2">{{SkillSet.No2}}</li>
+  <li class="Techs2">{{SkillSet2[0]}}</li>
+  <li class="Techs2">{{SkillSet2[1]}}</li>
+  <li class="Techs2">{{SkillSet2[2]}}</li>
+
+
+
+  
+    
   </ul>
 
   <div class="top"></div>
@@ -36,6 +45,7 @@
 </template>
 
 <script setup>
+  const currentTime =new Date();
   const weather = '晴れ';
   let text1 ="くもり";
   text1 ="雨";
@@ -44,9 +54,16 @@
     sinceyear:"3DAYS インターン体験記"
   };
   console.log(company.name);
-  const array =[114514,2,3]
-  console.log(array[0])
-  const a="高校時代は山岳部でした";
+  
+  const SkillSet={
+    No1:"Python",
+    No2:"Javascript"
+  }
+  console.log(SkillSet.No1);
+  console.log(SkillSet.No2);
+
+  const SkillSet2=["react","vue","kotlin"];
+  console.log(SkillSet2[0]);
 
 </script>
 
@@ -66,15 +83,18 @@
   margin-top:20px;
   margin-left:200px;
 }
-.Python {
-  color: #42b983;
-}
 
 .red {
   color: black;
 }
 
 .Techs{
+  justify-content: center;
+  display: flex;
+  list-style: none;
+  padding: 10px;
+}
+.Techs2{
   justify-content: center;
   display: flex;
   list-style: none;
